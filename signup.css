@@ -8,7 +8,7 @@ body {
 }
 
 .topnav {
-    background-color: #9141af;
+    background-color: #d48fe8;
     overflow: hidden;
 }
 
@@ -36,10 +36,19 @@ body {
   width: 18px;
 }
 
+.topnav a img {
+  padding: 0;
+  width: 20%;
+}
+
 /* Change the color of links on hover */
 .topnav a:hover {
     background-color: #ddd;
     color: black;
+}
+
+#logo a:hover {
+  background-color: #d48fe8;
 }
 
 /* Add a color to the active/current link */
@@ -49,14 +58,14 @@ body {
 }
 
 .topnav-button {
-  background-color: #9141af;
+  background-color: #d48fe8;
   color:white;
   padding: 0;
   border: none;
 }
 
 .topnav-button:hover {
-    background-color: #4CAF50; /* Green */
+    background-color: #ddd; /* Green */
     color: white;
 }
 
