@@ -4,22 +4,23 @@
     <meta charset="utf-8"/>
     <title>Checkout</title>
     <link rel="stylesheet" type="text/css" href="CheckoutStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
 <body>
 
 <!-- Jonathan's tool bar  -->
-<div class="topBar">
-    <img src="AmerLogo.png" alt="Logo" style="width:280px"/>
-    <img src="cart.png" alt="Cart" style="float:right;height:80px"/>
-    <ul>
-        <li><a href="">Log-In</a></li>
-        <li><a href="">Sign-Up</a></li>
-
-        <li class="right"><a href="">Add Item</a></li>
-        <li class="right"><a href="">Check Out</a></li>
-    </ul>
-</div>
+        <div class="topnav">
+          <div id = "logo"><a href="home.html"><img src = "transLogo.png" alt = "logo"></a></div>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Signup</a>
+          <a href="FAQ.html">FAQ</a>
+          <a href="#">Contact Us</a>
+          <a href="#">About</a>
+          <button class="topnav-button"><img src="cart.png" alt="cart"></button>
+          <a href="CheckoutPage.html" style="float: right">Checkout</a>
+          <button class="topnav-button">Add Item</button>
+        </div>
 
 <!-- my code  -->
     <div class="checkoutlabel"><h1>Checkout</h1></div>
@@ -40,7 +41,7 @@
                     <br> Phone: <input type="text" name="phone">
                 </td>
                 <td id="returning">
-                    Returning? <br> <a href="#">Log In</a>
+                    Returning? <br> <a href="login.html">Log In</a>
                 </td>
             </tr>
             <tr>
@@ -97,7 +98,9 @@
             <tr><td class = "urllist">www.gamestop.com/item/black341534boots </td></tr>
             <tr><td class = "urllist"> www.bestbuy.com/item/echo-plus3421f</td></tr>
         </table>
-        <div class="button"><input id ="submitBtn" type="submit" value="Place Order"></div>
+        
+            <form action="OrderSuccess.html"><input id ="submitBtn" type="submit" value="Place Order"></form>
+
     </div>
 </body>
 </html>
