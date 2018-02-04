@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout</title>
+    <link rel="stylesheet" type="text/css" href="CheckoutStyle.css">
+</head>
+
+<body>
+    <h1>Checkout</h1>
+    <div class="checkout-info">
+        <table class="checkout-info-table">
+            <tr>
+                <th colspan="2"> Information </th>
+            </tr>
+            <tr>
+                <td>
+                    Email: <input type: "text" name="email">
+                    <br> First Name: <input type: "text" name="firstname">
+                    <br> Last Name: <input type: "text" name="lastname">
+                    <br> Address: <input type: "text" name="address">
+                    <br> City: <input type: "text" name="city">
+                    <br> State: <input type: "text" name="state">
+                    <br> Zip: <input type: "text" name="zip">
+                    <br> Phone: <input type: "text" name="phone">
+                </td>
+                <td>
+                    Returning? Log In
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2"> Payment </th>
+            </tr>
+            <tr>
+                <td>
+                    Card Number: <input type: "text" name="payment">
+                    <br> Name on Card: <input type: "text" name="cardame">
+                    <br>Expiration:
+                    <select name="month">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <select name="year">
+                        <option>2018</option>
+                        <option>2019</option>
+                        <option>2020</option>
+                        <option>2021</option>
+                        <option>2022</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2"> Shipping </th>
+            </tr>
+            <tr>
+                <td>
+                    <form>
+                        <input type="radio" checked> $5 Standard Shipping: Wednesday, January 24 <br>
+                        <input type="radio" > $12.50 Express Shipping: Monday, January 20 <br>
+                    </form>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="shoppingcart">
+        <h2> My Shopping Cart </h2>
+        <ul>
+            <div class="urlheader"><li><h3> Amazon (3 items) </h3></li></div>
+            <div class="urllist">
+                <li> http.amazon.com/item/applesauce-20 </li>
+                <li> http.amazon.com/item/echo-plus3421f </li>
+                <li> http.amazon.com/item/black341534boots </li>
+            </div>
+            <div class="urlheader"><li><h3> BestBuy (2 items) </h3></li></div>
+            <div class="urllist">
+                <li> www.bestbuy.com/item/applesauce-20 </li>
+                <li> www.bestbuy.com/item/echo-plus3421f </li>
+                <li> www.bestbuy.com/item/black341534boots </li>
+            </div>
+            <div class="urlheader"><li><h3> GameStop (4 items) </h3></li></div>
+            <div class="urllist">
+                <li> www.gamestop.com/item/applesauce-20 </li>
+                <li> www.gamestop.com/item/echo-plus3421f </li>
+                <li> www.gamestop.com/item/black341534boots </li>
+                <li> www.gamestop.com/item/black341534boots </li>
+            </div>
+        </ul>
+        <input id ="submitBtn" type="submit" value="Place Order">
+    <div>
+</body>
+</html>
