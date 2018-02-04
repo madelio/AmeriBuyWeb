@@ -1,0 +1,198 @@
+﻿body {
+    margin: 0;
+    clear: both;
+}
+
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+}
+
+li {
+    float: left;
+}
+
+li.right {
+    float: right;
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Arial';
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.HeaderBar {
+    background-color: #0073e6;
+
+}
+
+.FAQHeader {
+    margin: 0;
+    padding: 35px 20%;
+    font-family: 'Segoe UI', 'Arial';
+    font-size: 30px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.wrapper {
+
+}
+
+
+/* Acordeon styles */
+.tab {
+    position: relative;
+    margin-bottom: 1px;
+    width: 60%;
+    padding: 0 20%;
+    color: #fff;
+    overflow: hidden;
+}
+
+/*radio stuff?*/
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+
+label {
+    position: relative;
+    display: block;
+    padding: 0 0 0 1em;
+    background: #16a085;
+    font-weight: bold;
+    font-family: 'Segoe UI', 'Arial';
+    line-height: 3;
+    cursor: pointer;
+}
+label:hover {
+    background-color: #33cc33;
+}
+
+
+.tab-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #1abc9c;
+    -webkit-transition: max-height .35s;
+    -o-transition: max-height .35s;
+    transition: max-height .35s;
+}
+
+
+.tab-content p {
+    margin: 1em;
+    font-family: 'Segoe UI', 'Arial';
+}
+
+
+p.question {
+    font-weight: bold;
+}
+
+p.answer {
+    margin-left: 40px;
+}
+
+
+
+/* :checked */
+input:checked ~ .tab-content {
+    max-height: 1000em;
+}
+/* Icon */
+label::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: block;
+    width: 3em;
+    height: 3em;
+    line-height: 3;
+    text-align: center;
+    -webkit-transition: all .35s;
+    -o-transition: all .35s;
+    transition: all .35s;
+}
+
+input[type=checkbox] + label::after {
+    content: "+";
+}
+
+input[type=radio] + label::after {
+    content: "\25BC";
+}
+
+input[type=checkbox]:checked + label::after {
+    transform: rotate(315deg);
+}
+
+input[type=radio]:checked + label::after {
+    transform: rotateX(180deg);
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.backTop {
+    background-color: #333;
+    margin-top: 200px;
+}
+
+p.backText {
+    margin: 0;
+    text-align: center;
+    font-family: 'Arial';
+    color: white;
+    padding: 10px;
+}
+
+p.backText:hover {
+color: #cc0000;
+cursor: pointer;
+}
+
+
+.botBar {
+    
+}
+
+.third {
+    width: 33.33%;
+    float: left;
+    background-color: #DDD;
+}
+
+p.botText {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Segoe UI', 'Arial';
+}
+
+p.botText:hover {
+    color: #cc0000;
+    cursor: pointer;
+} 
