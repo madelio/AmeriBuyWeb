@@ -6,7 +6,7 @@ header {
     background-color: #0073e6;
     color: white;
 }
-div.LHS {
+.LHS {
     margin: 10px;
     margin-top: 5%;
     float: left;
@@ -18,7 +18,7 @@ div.LHS {
     padding-left: 100px;
 }
 
-div.RHS {
+.RHS {
     margin-top:  5%;
     float: right;
     width: 50%;
@@ -32,9 +32,6 @@ div.RHS {
     padding-bottom: 10%;
 }
 
-.Disclaimer {
-
-}
 
 table, th, td {
     border: 1px solid #ddd;
@@ -43,7 +40,7 @@ table, th, td {
 
 /* Jonathan's toolbar */
 
-ul.topBarul {
+.topBarul {
     list-style-type: none;
     margin: 0;
     padding: 0;
