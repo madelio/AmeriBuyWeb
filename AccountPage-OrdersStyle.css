@@ -62,3 +62,36 @@ table.order-items tr:nth-child(odd) {
 table.order-items tr:nth-child(even) {
     background-color: #E9EDEE;
 }
+
+
+/* Jonathan's toolbar */
+
+ul.topBarul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    width: 100%;
+}
+
+li.logsign {
+    float: left;
+}
+
+li.right {
+    float: right;
+}
+
+li.logsign a, li.right a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Arial';
+}
+
+li.logsign a:hover {
+    background-color: #111;
+}
