@@ -1,0 +1,62 @@
+#toolbar-header {
+    padding-bottom: 20px;
+}
+
+#sign-out-button {
+    padding: 20px;
+}
+
+.total {
+    text-align: center;
+}
+
+tr.statusbar {
+    background-color: white;
+    text-align: center;
+    font-size: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #085068;
+}
+nav {
+    background-color: #085068;
+    color: white;
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+    padding-bottom: 100%;
+}
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+th {
+    background-color: #085068;
+    color: white;
+}
+
+.orders {
+    margin-left: 200px;
+    padding: 1em;
+}
+table.order-items {
+    margin: 20px;
+    border: 1px solid black;
+    width: 90%;
+}
+
+table.order-items td {
+    padding: 10px;
+}
+
+table.order-items tr:nth-child(odd) {
+    background-color: white;
+}
+table.order-items tr:nth-child(even) {
+    background-color: #E9EDEE;
+}
