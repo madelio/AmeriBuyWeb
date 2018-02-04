@@ -13,7 +13,7 @@ div.LHS {
 
 }
 .LHSVals {
-    left-align: center;
+    text-align: center;
     padding-left: 100px;
 }
 

@@ -18,7 +18,6 @@ tr.statusbar {
 
 h1 {
     text-align: center;
-    color: #085068;
 }
 nav {
     background-color: #085068;
@@ -41,13 +40,16 @@ th {
 }
 
 .orders {
-    margin-left: 200px;
-    padding: 1em;
+    margin:auto;
+    padding-left: 8em;
+    float: left;
+    width: 70%;
+    text-align: center;
 }
 table.order-items {
-    margin: 20px;
+    margin: 40px;
     border: 1px solid black;
-    width: 90%;
+    width: 100%;
 }
 
 table.order-items td {
