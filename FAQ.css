@@ -193,7 +193,9 @@ p.answer {
     margin-left: 40px;
 }
 
-
+.hide {
+    display: none;
+}
 
 /* :checked */
 input:checked ~ .tab-content {
