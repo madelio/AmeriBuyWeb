@@ -158,19 +158,23 @@ orders.push(orderPrev2);
 // realOrder
 
 var orderCount = parseInt(localStorage.getItem("count"));
-
+console.log("COUNT IS " + orderCount);
 var itemArray = []
-for (var ct = (orderCount-1); ct <= 0; ct--) {
+for (var ct = 0; ct  < orderCount; ct++) {
     var itemStr = "item" + ct;
+    console.log("ITEM STRING IS " + itemStr);
     var item = JSON.parse(localStorage.getItem(itemStr));
+    console.log("ITEM VALUE " + item);
 
-    itemArray.push(new ItemBuilder(item[1], item[3]))
+    itemArray.push(new ItemBuilder(item[0], item[2]))
 }
 
-if (itemArray != []) {
-    var order = new OrderBuilder(itemArray);
-    order.push(currOrder);
-}
+
+var order = new OrderBuilder(itemArray);
+order.push(order);
+
+
+
 
 
 // Success Page Element
