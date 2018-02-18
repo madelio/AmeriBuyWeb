@@ -15,7 +15,7 @@
 				localStorage.setItem("fname", fname);
 				localStorage.setItem("lname", lname);
 				localStorage.setItem("mnum", mnum);
-				localStorage.setItem("mnum", addr);
+				localStorage.setItem("addr", addr);
 				document.getElementById('errormsg').classList.add('hide');
 				document.location.href = "./home.html";
 			}
