@@ -4,6 +4,7 @@
 		<title>AmeriBuy - Home</title>
 		<link rel = "stylesheet" type = "text/css" href = "home.css" />
 		<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+		<script type="text/javascript" src="home.js"></script>
 	</head>
 	<body>
 		<div class="topnav">
@@ -57,8 +58,65 @@
 					<p><span class="name">John Doe 2</span><br><br>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...</p>
 
 			</div>
-
 		</div>
+
+	<div class="chat-box">
+	    <div class="chat-closed" onclick="chatClosed()"> Chat Now </div>
+	    <div class="chat-header hide" onclick="chatHeader()"><div class="box"></div>Online Support</div>
+	    <div class="chat-content hide">
+
+	    </div>
+	    <div class="chat-input hide">
+	        <textarea class="message" placeholder="Type your message..."></textarea>
+	        <button type="submit" id="submit-button" onclick="sendMessage()">Send</button>
+	    </div>
+	</div>
+
+	<script type="text/javascript">
+    var userLoggedIn = true;
+
+    document.getElementsByClassName('message')[0]
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementById("submit-button").click();
+    }
+    });
+
+    if(userLoggedIn == true) {
+        document.getElementsByClassName('chat-closed')[0].classList.remove('hide');
+    }
+    else if (userLoggedIn == false) {
+        document.getElementsByClassName('chat-closed')[0].classList.add('hide');
+    }
+
+
+    function chatClosed() {
+        document.getElementsByClassName('chat-header')[0].classList.remove('hide')
+        document.getElementsByClassName('chat-content')[0].classList.remove('hide')
+        document.getElementsByClassName('chat-input')[0].classList.remove('hide')
+        document.getElementsByClassName('chat-closed')[0].classList.add('hide')
+    }
+
+    function chatHeader() {
+        document.getElementsByClassName('chat-content')[0].classList.add('hide')
+        document.getElementsByClassName('chat-header')[0].classList.add('hide')
+        document.getElementsByClassName('chat-input')[0].classList.add('hide')
+        document.getElementsByClassName('chat-closed')[0].classList.remove('hide')
+    }
+
+    function sendMessage() {
+        var msg = document.getElementsByClassName('message')[0].value;
+        msg = msg.replace(/\n/g, '');              
+        if(msg == '') return;
+        document.getElementsByClassName('message')[0].value = '';
+        var mycontent = document.createElement("div");
+        mycontent.className = 'userMessage';
+        mycontent.appendChild(document.createTextNode(msg));
+        document.getElementsByClassName('chat-content')[0].appendChild(mycontent);
+    }
+
+</script>
 	</body>
 </html>
 

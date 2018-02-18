@@ -1,6 +1,8 @@
 * {
       margin: 0;
       padding: 0;
+        font-family: 'Montserrat', sans-serif;
+
 }
 
 body {
@@ -24,7 +26,7 @@ body {
 
 .topnav button {
     float: right;
-    text-color: #f2f2f2;
+    color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -141,4 +143,83 @@ body {
   margin: 20px;
   font-size: 40px;
   color: #e84db2;
+}
+
+.chat-box {
+    position:fixed;
+    right:15px;
+    bottom:0;
+    border: 1px solid #7bc4ae;
+    border-radius: 5px;
+
+}
+
+.chat-input {
+    bottom: 0;
+    text-align: center;
+}
+
+.chat-input textarea {
+    width: 240px;
+    border-radius: 5px
+}
+
+.chat-closed {
+    width: 250px;
+    height: 35px;
+    background: #8bc34a;
+    line-height: 35px;
+    font-size: 18px;
+    text-align: center;
+    color: #000;
+}
+
+.chat-header {
+    width: 250px;
+    height: 35px;
+    background: #8bc34a;
+    line-height: 33px;
+    text-indent: 20px;
+    border-bottom:none;
+}
+
+.chat-content{
+    width:250px;
+    height:300px;
+    background:#ffffff;
+    overflow-y:auto;
+    word-wrap: break-word;
+
+}
+
+.box{
+    width:10px;
+    height:10px;
+    background:green;
+    float:left;
+    position:relative;
+    top: 11px;
+    left: 10px;
+}
+
+.userMessage {
+    font-size: 15px;
+    text-align: right;
+    border: 1px solid #dee4ed;
+    border-radius: 5px;
+    display: block;
+    float: right;
+    clear: right;
+    max-width: 200px;
+    margin: 2.5px 5px 2.5px 5px;
+    padding: 2.5px 5px 2.5px 5px;
+    background: #dee4ed
+}
+
+.hide {
+    display:none;
+}
+
+#submit-button {
+    display: none;
 }
