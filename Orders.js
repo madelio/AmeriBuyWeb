@@ -171,7 +171,7 @@ for (var ct = 0; ct  < orderCount; ct++) {
 
 
 var order = new OrderBuilder(itemArray);
-order.push(order);
+orders.push(order);
 
 
 
