@@ -5,8 +5,11 @@
 			var lname = document.getElementById('lname').value;
 			var mnum = document.getElementById('mnum').value;
 			var addr = document.getElementById('addr').value;
+			var addr = document.getElementById('city').value;
+			var addr = document.getElementById('state').value;
+			var addr = document.getElementById('zip').value;
 
-			if(email == '' || pass == '' || fname == '' || lname == '' || mnum == '' || addr == '') {
+			if(email == '' || pass == '' || fname == '' || lname == '' || mnum == '' || addr == '' || city == '' || state == '' || zip == '') {
 				document.getElementById('errormsg').classList.remove('hide');
 			}
 			else {
@@ -16,6 +19,10 @@
 				localStorage.setItem("lname", lname);
 				localStorage.setItem("mnum", mnum);
 				localStorage.setItem("addr", addr);
+				localStorage.setItem("city", city);
+				localStorage.setItem("state", state);
+				localStorage.setItem("zip", zip);
+
 				document.getElementById('errormsg').classList.add('hide');
 				document.location.href = "./home.html";
 			}
