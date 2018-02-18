@@ -1,0 +1,71 @@
+<tr><td>
+    <table class="order-items">
+        <tr>
+            <th>Order#: 4X82-ALXY</th>
+            <th>Placed January 20, 2018</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>
+            <b> Amazon </b> (3 items) :
+            </td>
+            <td> Est Price Pending </td>
+            <td class="total" rowspan="3">
+                <b>Total:</b>
+                <br>
+                Pending
+                <br>
+                Request Cancellation
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b> BestBuy</b> (3 items) :
+            </td>
+            <td> Est Price Pending </td>
+        </tr>
+        <tr>
+            <td>
+                <b> GameStop </b> (2 items) :
+            </td>
+            <td> Est Price Pending </td>
+        </tr>
+        <tr class="statusbar">
+            <td colspan="3"><b>Received</b> > Processed > Shipped > Delivered</td>
+        </tr>
+    </table></td>
+</tr>
+<tr><td>
+    <table class="order-items">
+        <tr>
+            <th>Order#: 68HA-BR2Z</th>
+            <th>Placed September 7, 2017</th>
+            <th>Details</th>
+        </tr>
+        <tr>
+            <td>
+            <b> Footlocker </b> (2 items) :
+            </td>
+            <td> Est Price: $102.80 </td>
+            <td class="total" rowspan="2">
+                <b>Total:</b>
+                <br>
+                $159.52
+                <br>
+                Approve
+                <br>
+                Request Cancellation
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b> Forever21</b> (6 items) :
+            </td>
+            <td> Est Price: $56.72 </td>
+        </tr>
+        <tr class="statusbar">
+            <td colspan="3">Received > Processed > Shipped > <b>Delivered</b></td>
+        </tr>
+
+                </table>
+            </td></tr>

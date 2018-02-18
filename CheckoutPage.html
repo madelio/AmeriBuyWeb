@@ -9,6 +9,7 @@
 
 <body>
 
+
 <!-- Jonathan's tool bar  -->
         <div class="topnav">
           <div id = "logo"><a href="home.html"><img src = "transLogo.png" alt = "logo"></a></div>
@@ -73,9 +74,9 @@
             </tr>
             <tr>
                 <td id="shipping" colspan="2">
-                    <form>
-                        <input type="radio" checked> $5 Standard Shipping: Wednesday, January 24 <br>
-                        <input type="radio" > $12.50 Express Shipping: Monday, January 20 <br>
+                    <form id="shippingForm">
+                        <input id="standard" type="radio" name="myRadio" checked> $5 Standard Shipping: Wednesday, January 24 <br>
+                        <input id="express" type="radio" name="myRadio"> $12.50 Express Shipping: Monday, January 20 <br>
                     </form>
                 </td>
             </tr>
@@ -83,24 +84,16 @@
     </div>
 
     <div class="shoppingcart">
-        <table class="shoppingcart-table">
+        <table class="shoppingcart-table" id="shoppingcart-elements">
             <caption><h2>My Shopping Cart</h2></caption>
-            <tr><th class ="urlheader">Amazon (3 items)</th></tr>
-            <tr><td class = "urllist">http.amazon.com/item/applesauce-20 </td></tr>
-            <tr><td class = "urllist">http.amazon.com/item/echo-plus3421f </td></tr>
-            <tr><td class = "urllist">http.amazon.com/item/black341534boots </td></tr>
-            <tr><th class ="urlheader">BestBuy (2 items)</th></tr>
-            <tr><td class = "urllist">www.bestbuy.com/item/applesauce-20 </td></tr>
-            <tr><td class = "urllist">www.bestbuy.com/item/echo-plus3421f</td></tr>
-            <tr><th class ="urlheader">GameStop (4 items)</th></tr>
-            <tr><td class = "urllist">www.gamestop.com/item/applesauce-20 </td></tr>
-            <tr><td class = "urllist">www.gamestop.com/item/echo-plus3421f </td></tr>
-            <tr><td class = "urllist">www.gamestop.com/item/black341534boots </td></tr>
-            <tr><td class = "urllist"> www.bestbuy.com/item/echo-plus3421f</td></tr>
+            
         </table>
-        
+
             <form action="OrderSuccess.html"><input id ="submitBtn" type="submit" value="Place Order"></form>
 
     </div>
+
+    <script src="Customer.js"></script>
+    <script src="Orders.js"></script>
 </body>
 </html>
