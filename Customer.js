@@ -43,7 +43,7 @@ function CreateJaneDoe() {
     "(880)880-8888",
     "jdiggity", "password");
 }
-
+var user = null;
 
 if (userLoggedIn != null) {
     var email  = localStorage.getItem("email");
@@ -52,18 +52,20 @@ if (userLoggedIn != null) {
     var lname = localStorage.getItem("lname");
     var mnum = localStorage.getItem("mnum");
     var addr = localStorage.getItem("addr");
-    var city = localStorage.getItem();
-    var state = localStore.getItem();
-    var zip = localStore.getItem();
+    var city = localStorage.getItem("city");
+    var state = localStorage.getItem("userstate");
+    var zip = localStorage.getItem("zip");
 
-    var user = new CustomerBuilder(fname, lname, email, addr,
+    user = new CustomerBuilder(fname, lname, email, addr,
         city, state, zip, mnum, email, pw)
 }
 // success page
+if (user != null) {
 console.log(user.first, user.address);
 if (document.getElementById("thanksMssg") != null) {
     document.getElementById("thanksMssg").innerHTML = "Thank You for your order " + user.first + "!"
 }
+
 
 if (document.getElementById("CustomerDetails") != null) {
     document.getElementById("CustomerDetails").innerHTML =
@@ -72,6 +74,7 @@ if (document.getElementById("CustomerDetails") != null) {
         "<br><b>Phone:</b> " + user.phone +
         "<br><b>Address:</b> " + user.fulladdress +
     "</p>"
+}
 }
 
 // AcountPage-Orders Elements

@@ -152,8 +152,26 @@ var item5 = new ItemBuilder("BestBuy", "bestbuy.com/usb" )
 
 
 var items = [item1, item2, item3, item4, item5];
-var order = new OrderBuilder(items);
-orders.push(order);
+var orderPrev2 = new OrderBuilder(items);
+orders.push(orderPrev2);
+
+// realOrder
+
+var orderCount = parseInt(localStorage.getItem("count"));
+
+var itemArray = []
+for (var ct = (orderCount-1); ct <= 0; ct--) {
+    var itemStr = "item" + ct;
+    var item = JSON.parse(localStorage.getItem(itemStr));
+
+    itemArray.push(new ItemBuilder(item[1], item[3]))
+}
+
+if (itemArray != []) {
+    var order = new OrderBuilder(itemArray);
+    order.push(currOrder);
+}
+
 
 // Success Page Element
 var orderSummary = document.getElementById("orderTable");
