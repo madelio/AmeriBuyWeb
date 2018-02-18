@@ -23,11 +23,27 @@
 		</div>
 
 		<div class="signup-form">
-			<form action="home.html">
-	  			<input type="text" name="email" placeholder="Email Address"><br>
-	  			<input type="password" name="pass" placeholder="Password"><br>
-			  	<input type="submit" value="Login">	
+			<form>
+	  			<input type="text" id="email" placeholder="Email Address"><br>
+	  			<input type="password" id="pass" placeholder="Password"><br>
+			  	<input type="reset" value="Login" onclick="login()">	
 			</form>
 		</div>
+
+	<script>
+		function login() {
+			var email = document.getElementById('email').value;
+			var pass = document.getElementById('pass').value;
+ 
+			var _email = localStorage.getItem("email");
+			var _pass = localStorage.getItem("pass");
+
+			if(email == _email && pass == _pass) {
+				document.location.href = "file:///Users/zjteoh/Desktop/web/home.html";
+				localStorage.setItem("state", "logged-in");
+			}
+
+		}
+	</script>
 	</body>
 </html>

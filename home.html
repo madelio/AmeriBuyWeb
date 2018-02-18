@@ -9,8 +9,9 @@
 	<body>
 		<div class="topnav">
 		  <div id = "logo"><a href="home.html"><img src = "transLogo.png" alt = "logo"></a></div>
-		  <a href="login.html">Login</a>
-		  <a href="signup.html">Signup</a>
+		  <a id="login_link" href="login.html">Login</a>
+		  <a id = "pass_link" href="signup.html">Signup</a>
+		  <a id = "logout" class="hide" onclick="logout()">Logout</a>
 		  <a href="FAQ.html">FAQ</a>
 		  <a href="#">Contact Us</a>
 		  <a href="#">About</a>
@@ -73,7 +74,11 @@
 	</div>
 
 	<script type="text/javascript">
-    var userLoggedIn = true;
+    var temp = localStorage.getItem("state");
+    var userLoggedIn = false;
+    if(temp == "logged-in"){
+    	userLoggedIn = true;
+    }
 
     document.getElementsByClassName('message')[0]
     .addEventListener("keyup", function(event) {
@@ -85,9 +90,19 @@
 
     if(userLoggedIn == true) {
         document.getElementsByClassName('chat-closed')[0].classList.remove('hide');
+        document.getElementById('login_link').classList.add('hide');
+        document.getElementById('pass_link').classList.add('hide');
+        document.getElementById('logout').classList.remove('hide');
+
+
     }
     else if (userLoggedIn == false) {
+
         document.getElementsByClassName('chat-closed')[0].classList.add('hide');
+        document.getElementById('login_link').classList.remove('hide');
+        document.getElementById('pass_link').classList.remove('hide');
+        document.getElementById('logout').classList.add('hide');
+
     }
 
 
@@ -114,6 +129,11 @@
         mycontent.className = 'userMessage';
         mycontent.appendChild(document.createTextNode(msg));
         document.getElementsByClassName('chat-content')[0].appendChild(mycontent);
+    }
+
+    function logout() {
+    	localStorage.setItem("state","logged-out");
+    	window.location.reload()
     }
 
 </script>
