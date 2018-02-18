@@ -1,0 +1,152 @@
+﻿body {
+    margin: 0;
+    clear: both;
+}
+
+
+* {
+      margin: 0;
+      padding: 0;
+        font-family: 'Montserrat', sans-serif;
+
+}
+
+body {
+  background-color: #f0edf2;
+}
+
+.topnav {
+    background-color: #d48fe8;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav button {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav button img{
+  height: 18px;
+  width: 18px;
+}
+
+.topnav a img {
+  padding: 0;
+  width: 20%;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+#logo a:hover {
+  background-color: #d48fe8;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.topnav-button {
+  background-color: #d48fe8;
+  color:white;
+  padding: 0;
+  border: none;
+}
+
+.topnav-button:hover {
+    background-color: #ddd; /* Green */
+    color: white;
+} 
+
+#whatCan {
+    width: 100%;
+    height: 50px;
+    padding-top: 0px;
+}
+
+#whatCanText {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: #e84db2;
+}
+
+#itemAdder {
+    padding-top: 40px;
+}
+
+#forms {
+    width: 100%;
+    padding: 0px 20%;
+    font-size: 20px;
+}
+
+.formText {
+    margin: 0 auto;
+    width: 60%;
+    font-size: 20px;
+    font-family: Arial;
+    padding: 12px 20px;
+    margin: 8px 0;
+}
+
+
+#nextBut {
+    background-color: #4CAF50;
+    width: 10%;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left:20%;
+}
+
+#editBut {
+    background-color: #4CAF50;
+    width: 10%;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#addBut {
+    background-color: #4CAF50;
+    width: 25%;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
