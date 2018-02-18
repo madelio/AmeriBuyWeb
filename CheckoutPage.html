@@ -30,8 +30,9 @@
             <tr>
                 <th id="titleinfo" colspan="2"> Information </th>
             </tr>
-            <tr>
-                <td class="personal-info">
+            <tr id="checkout-details">
+                <td class="personal-info" id="personal-info-id">
+
                     Email: <input type= "text" name="email">
                     <br> First Name: <input type="text" name="firstname">
                     <br> Last Name: <input type="text" name="lastname">
@@ -42,7 +43,8 @@
                     <br> Phone: <input type="text" name="phone">
                 </td>
                 <td id="returning">
-                    Returning? <br> <a href="login.html">Log In</a>
+                    New customer <br> <a href="login.html">Log In</a>
+                    <br> <a href="login.html">Create Account</a>
                 </td>
             </tr>
             <tr>
@@ -86,7 +88,7 @@
     <div class="shoppingcart">
         <table class="shoppingcart-table" id="shoppingcart-elements">
             <caption><h2>My Shopping Cart</h2></caption>
-            
+
         </table>
 
             <form action="OrderSuccess.html"><input id ="submitBtn" type="submit" value="Place Order"></form>
