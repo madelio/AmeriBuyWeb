@@ -1,10 +1,51 @@
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.innerinfo {
+    float: left;
+    margin: 50px;
+    margin-left: 17%;
+    color: #475FA8;
+}
+
+br {
+    clear: both;
+}
+
+.addressInfo {
+    float:left;
+    margin: 50px;
+    color: #475FA8;
+}
+.edit-account {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 1px;
+    margin: auto;
+}
+
+h1 {
+    color: #475FA8;
+    padding: 30px;
+}
+
+
+/*tool bars*/
 * {
       margin: 0;
       padding: 0;
 }
 
 body {
-  background-color: #f0edf2;
+  background-color: #F4F4EF;
+  font-family: Sans-serif;
+
 }
 
 .topnav {
@@ -91,7 +132,7 @@ h1 {
     text-align: center;
 }
 nav {
-    background-color: #085068;
+    background-color: #475FA8;
     color: white;
     float: left;
     max-width: 160px;
@@ -110,29 +151,6 @@ th {
     color: white;
 }
 
-.orders {
-    margin:auto;
-    padding-left: 8em;
-    float: left;
-    width: 70%;
-    text-align: center;
-}
-table.order-items {
-    margin: 40px;
-    border: 1px solid black;
-    width: 100%;
-}
-
-table.order-items td {
-    padding: 10px;
-}
-
-table.order-items tr:nth-child(odd) {
-    background-color: white;
-}
-table.order-items tr:nth-child(even) {
-    background-color: #E9EDEE;
-}
 
 
 /* Jonathan's toolbar */
