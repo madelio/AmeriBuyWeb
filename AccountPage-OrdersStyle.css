@@ -4,7 +4,8 @@
 }
 
 body {
-  background-color: #f0edf2;
+  background-color: #F4F4EF;
+  font-family: sans-serif;
 }
 
 .topnav {
@@ -88,10 +89,12 @@ tr.statusbar {
 }
 
 h1 {
-    text-align: center;
+    padding: 30px;
+    color: #475FAB;
+
 }
 nav {
-    background-color: #085068;
+    background-color: #475FAB;
     color: white;
     float: left;
     max-width: 160px;
@@ -106,7 +109,7 @@ nav ul {
 }
 
 th {
-    background-color: #085068;
+    background-color: #475FAB;
     color: white;
 }
 
