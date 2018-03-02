@@ -78,7 +78,7 @@ body {
     padding: 20px;
 }
 
-.total {
+td.total {
     text-align: center;
 }
 
@@ -93,50 +93,56 @@ h1 {
     color: #475FAB;
 
 }
-nav {
-    background-color: #475FAB;
-    color: white;
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-    padding-bottom: 100%;
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
+
 
 th {
     background-color: #475FAB;
     color: white;
+    padding: 20px;
 }
 
 .orders {
     margin:auto;
-    padding-left: 8em;
+    padding-left: 5em;
     float: left;
     width: 70%;
     text-align: center;
 }
 table.order-items {
-    margin: 40px;
-    border: 1px solid black;
+    margin: 10px 40px;
+    padding: 5px;
     width: 100%;
+    box-shadow: 1px 3px 10px;
+    background-color: #F4F4EF;
+    color: #475FAB;
 }
+
+table {
+    border-collapse: collapse;
+}
+
 
 table.order-items td {
-    padding: 10px;
+    padding: 20px 40px;
+    background-color:
 }
 
-table.order-items tr:nth-child(odd) {
-    background-color: white;
-}
-table.order-items tr:nth-child(even) {
-    background-color: #E9EDEE;
+/* details */
+
+.orderBtn {
+    border-radius: 8px;
+    padding: 5px 10px;
+    text-align: center;
+    background-color: #F4F4EF;
+    margin:2px;
+    width:100%;
 }
 
+.total {
+    font-size: 20px;
+}
+
+button:focus {outline:0;}
 
 /* Jonathan's toolbar */
 

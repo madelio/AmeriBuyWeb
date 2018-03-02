@@ -13,6 +13,7 @@ input[type=text] {
     margin-left: 17%;
     color: #475FA8;
 }
+button:focus {outline:0;}
 
 br {
     clear: both;
@@ -131,20 +132,7 @@ tr.statusbar {
 h1 {
     text-align: center;
 }
-nav {
-    background-color: #475FA8;
-    color: white;
-    float: left;
-    max-width: 160px;
-    margin: 0;
-    padding: 1em;
-    text-align: center;
-    padding-bottom: 100%;
-}
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
+
 
 th {
     background-color: #085068;

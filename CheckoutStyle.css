@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f0edf2;
+  background-color: #F4F4EF;
 }
 
 .topnav {
@@ -87,13 +87,13 @@ body {
 
 .checkout-info {
     float: left;
-    width: 50%;
+    width: 60%;
     margin: 50px;
 }
 
 .checkout-info-table {
     margin: auto;
-    border: 1px solid black;
+    border: none;
     width: 100%;
 }
 
@@ -112,18 +112,21 @@ body {
 }
 
 .shoppingcart-table {
-    border: 1px solid black;
+    border: none;
+
+
 }
 
 .shoppingcart {
     float: left;
-    padding-left: 50px;
-    padding-top: 20px;
-
+    padding-left: 10px;
+    padding-top: 0px;
+    position: sticky;
 }
+
+
 .shoppingcart ul {
     list-style-type: none;
-    padding: 0;
 
 }
 .urlheader, h2 {
@@ -131,14 +134,13 @@ body {
 }
 table {
     background-color: white;
-    border: 1px black;
+    box-shadow: 1px 1px 5px;
 }
 
 th {
-    background-color: #ee84ff;
+    background-color: #837EA3;
     color: white;
     text-align: center;
-
 }
 
 #paymentInfo {
@@ -146,9 +148,15 @@ th {
     padding: 10px;
 }
 #submitBtn {
-    width: 100px;
-    height: 50px;
-    font-size: 100px;
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    margin-top: 10%;
+    border: 0px;
+    background-color: #D48FE8;
+    color: #533164;
+    box-shadow: 1px 1px 1px;
+
 }
 #shipping {
     padding: 10px;

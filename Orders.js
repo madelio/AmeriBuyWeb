@@ -283,13 +283,13 @@ if (orderHistory != null) {
                 vendorStr += "<td> Est Price: $" + vendor.price + "</td>"
             }
             if (j == 0) {
-                vendorStr += "<td class='total' rowspan='" + vendors.length + "'><b>Total:</b><br>"
+                vendorStr += "<td class='total' rowspan='" + vendors.length + "'>Total:<br>"
                 if(order.processed == false) {
-                    vendorStr += "Pending<br>"
+                    vendorStr += "Pending<br><br>"
                 } else {
-                    vendorStr += order.totalPrice + "<br>Approve<br>"
+                    vendorStr +="<b id='total'>$" + order.totalPrice + "<b><br><br><button class='orderBtn' id='approveBtn'>Approve Price</button><br>"
                 }
-                vendorStr += "Request Cancellation</td>"
+                vendorStr += "<button class='orderBtn' id='cancelBtn'>Request Cancellation</button></td>"
             }
             vendorStr += "</tr>"
         }
