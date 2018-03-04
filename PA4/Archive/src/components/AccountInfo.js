@@ -17,7 +17,10 @@ class AccountInfo extends React.Component {
     
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        
       }
+
+     
     
       handleChange(event) {
         var name = event.target.name;
@@ -59,6 +62,9 @@ class AccountInfo extends React.Component {
         user.city = this.state.city,
         user.state = this.state.state,
         user.zip= this.state.zip
+
+        changedValues();
+
       }
     render() {
 
@@ -87,30 +93,30 @@ class AccountInfo extends React.Component {
                     
                     <div className="innerinfo">
                         <label for="fname">First Name: </label>
-                        <input type= "text" id="fname" name="firstname" value={this.state.first} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="fname" name="firstname" value={this.state.first} onChange={this.handleChange}/>
                         <br />
                         <label for="lname">Last Name: </label>
-                        <input type= "text" id="lname" name="lastname" value={this.state.last} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="lname" name="lastname" value={this.state.last} onChange={this.handleChange}/>
                         <br />
                         <label for="email">Email: </label>
-                        <input type= "text" id="email" name="email" value={this.state.email} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="email" name="email" value={this.state.email} onChange={this.handleChange}/>
                         <br />
                         <label for="phone">Phone: </label>
-                        <input type= "text" id="phone" name="phone" value={this.state.phone} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="phone" name="phone" value={this.state.phone} onChange={this.handleChange}/>
                         <br />
                     </div>
                     <div className="addressInfo">
                         <label for="address">Address: </label>
-                        <input type= "text" id="address" name="address" value={this.state.address} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="address" name="address" value={this.state.address} onChange={this.handleChange}/>
                         <br />
                         <label for="city">City: </label>
-                        <input type= "text" id="city" name="city" value={this.state.city} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="city" name="city" value={this.state.city} onChange={this.handleChange}/>
                         <br />
                         <label for="state">State: </label>
-                        <input type= "text" id="state" name="state" value={this.state.state} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="state" name="state" value={this.state.state} onChange={this.handleChange}/>
                         <br />
                         <label for="zip">Zip: </label>
-                        <input type= "text" id="zip" name="zip" value={this.state.zip} onChange={this.handleChange}/>
+                        <input class="personalinfo" type= "text" id="zip" name="zip" value={this.state.zip} onChange={this.handleChange}/>
                     </div>
                     <button style={buttonStyle} onClick={this.handleSubmit}>Save Changes</button>
                 </div>
@@ -120,3 +126,19 @@ class AccountInfo extends React.Component {
 }
 
 export default AccountInfo;
+
+export function changedValues() {
+         
+    var values = {
+      fname : document.getElementById("fname").value,
+      lname : document.getElementById("lname").value,
+      email : document.getElementById("email").value,
+      phone : document.getElementById("phone").value,
+      address : document.getElementById("address").value,
+      city : document.getElementById("city").value,
+      state : document.getElementById("state").value,
+      zip : document.getElementById("zip").value
+    }
+   
+    return values;
+}
