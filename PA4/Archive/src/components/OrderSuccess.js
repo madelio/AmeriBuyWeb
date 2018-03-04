@@ -16,7 +16,7 @@ class OrderSuccess extends React.Component {
         }
         var orders = [];
 
-        var order = getFakeOrder(orders);
+        var order = getRealOrder(orders);
         var total = 0;
         var vendors = order.itemSummary;
         var vendorshtml = vendors.map((vendor) =>
@@ -37,7 +37,7 @@ class OrderSuccess extends React.Component {
         var customerDets;
         if (user != null) {
             thanksMssg = <div>Thank You for your order { user.first } !</div>
-            customerDets = <div><br /><b>Customer Name:</b> {user.fullname}
+            customerDets = <div><br /><b>Customer Name:</b> {user.first} {user.last}
             <br /><b>Email:</b> {user.email}
             <br /><b>Phone:</b>  {user.phone }
             <br /><b>Address:</b> {user.fulladdress}</div>
@@ -52,6 +52,7 @@ class OrderSuccess extends React.Component {
             <div className="LHS">
                 <div className="LHSVals">
                     <div id="OrderID">
+                    <b>Order No:</b> {order.id}
                     </div>
                     <div id="CustomerDetails">{customerDets}
                     </div>
