@@ -31,6 +31,7 @@ class SideNav extends React.Component {
            padding: 0
 
         }
+
         return (
             <div style={navStyle}>
             <ul id="sideBarUL" style={ulStyle}><li id="toolbar-header"><h3>Welcome!</h3></li>

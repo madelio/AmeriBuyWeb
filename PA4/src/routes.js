@@ -6,12 +6,15 @@ import OrderHistory from './components/OrderHistory';
 import AccountInfo from './components/AccountInfo';
 import AccountPage from './components/AccountPage'
 import SideNav from './components/SideNavBar'
+import Checkout from './components/Checkout'
 
 export default (
-    <Route path ="/account" component={AccountPage}>
-        <IndexRoute component={AccountInfo} />
-        <Route path="orders" component={OrderHistory} />
-    </Route>
+
+        <Route path ="/account" component={AccountPage}>
+            <IndexRoute component={AccountInfo} />
+            <Route path="orders" component={OrderHistory} />
+        </Route>
+
 );
 
 

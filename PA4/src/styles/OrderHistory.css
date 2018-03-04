@@ -120,7 +120,8 @@ table {
 
 
 table.order-items td {
-  padding: 20px 40px;
+  margin: 20px 40px;
+  padding: 10px 30px;
 
 }
 

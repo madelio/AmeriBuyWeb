@@ -1,3 +1,4 @@
+
 var idCtrPre = 1001;
 var idCtrPost = 28;
 var randomizer = 4;
@@ -169,11 +170,8 @@ for (var ct = 0; ct  < orderCount; ct++) {
     itemArray.push(new ItemBuilder(itemFound[0], itemFound[2]))
 }
 
-
 var orderNew = new OrderBuilder(itemArray);
 orders.push(orderNew);
-
-
 
 
 
