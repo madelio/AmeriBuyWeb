@@ -58,24 +58,12 @@ if (userLoggedIn != null) {
 
     user = new CustomerBuilder(fname, lname, email, addr,
         city, state, zip, mnum, email, pw)
+} else {
+    user = CreateJaneDoe();
 }
 // success page
-if (user != null) {
-console.log(user.first, user.address);
-if (document.getElementById("thanksMssg") != null) {
-    document.getElementById("thanksMssg").innerHTML = "Thank You for your order " + user.first + "!"
-}
 
-
-if (document.getElementById("CustomerDetails") != null) {
-    document.getElementById("CustomerDetails").innerHTML =
-        "<br><b>Customer Name:</b> " + user.fullname +
-        "<br><b>Email:</b> " +  user.email +
-        "<br><b>Phone:</b> " + user.phone +
-        "<br><b>Address:</b> " + user.fulladdress +
-    "</p>"
-}
-}
+  
 
 // AcountPage-Orders Elements
 

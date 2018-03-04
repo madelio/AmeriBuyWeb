@@ -7,6 +7,24 @@ import '../styles/OrderHistory.css';
 class OrderHistory extends React.Component {
  
     render() {
+
+        const h1Style = {
+            
+                padding: "30px",
+                color: "#475FAB"
+              
+              
+        
+        }
+
+        const thStyle = {
+          
+                backgroundColor: "#475FAB",
+                color: "white",
+                padding: "20px"
+        }
+  
+
         var idCtrPre = 1001;
         var idCtrPost = 28;
         var randomizer = 4;
@@ -31,17 +49,8 @@ class OrderHistory extends React.Component {
 
       
         /* real order */
-        var orderCount = parseInt(localStorage.getItem("count"));
-     
-        var itemArray = []
-        for (var ct = 0; ct  < orderCount; ct++) {
-            var itemStr = "item" + ct;
-            var item = JSON.parse(localStorage.getItem(itemStr));
-    
-            itemArray.push(new ItemBuilder(item[0], item[2]))
-        }
-        var order = new OrderBuilder(itemArray);
-        orders.push(order);
+
+        getRealOrder(orders);
      
        var orderStr = orders.map(convertOrdertoHTML);
        var htmlStr = <tbody><tr><td><table className='order-items'>{orderStr}</table></td></tr></tbody>;
@@ -52,9 +61,9 @@ class OrderHistory extends React.Component {
 
            return (
                <tbody key={order.id}>
-            <tr><th>Order#: {order.id}  </th>
-                <th>Placed { new Date(order.placed).toLocaleDateString('en-us') } </th>
-                <th>Details</th></tr>
+            <tr><th style = {thStyle}>Order#: {order.id}  </th>
+                <th style={thStyle}>Placed { new Date(order.placed).toLocaleDateString('en-us') } </th>
+                <th style={thStyle}>Details</th></tr>
             {vendorHtml}</tbody>
            );
        }
@@ -83,7 +92,7 @@ class OrderHistory extends React.Component {
         return (
             <div>
                 <div className="orders">
-                    <h1>My Orders</h1>
+                    <h1 style={h1Style}>My Orders</h1>
                 <table id="orderHistory">
                     
                     {htmlStr}
@@ -196,4 +205,46 @@ export function addDays(date, days) {
 var result = new Date(date);
 result.setDate(result.getDate() + days);
 return result;
+}
+
+const tableStyle = {
+        backgroundColor: "white",
+        boxShadow: "1px 1px 5px"
+       };
+//real order
+export function getRealOrder(orders) {
+    if (localStorage.getItem("count") != null ) {
+        var orderCount = parseInt(localStorage.getItem("count"));
+    
+        var itemArray = []
+        for (var ct = 0; ct  < orderCount; ct++) {
+            var itemStr = "item" + ct;
+            var item = JSON.parse(localStorage.getItem(itemStr));
+    
+            itemArray.push(new ItemBuilder(item[0], item[2]))
+        }
+        var order = new OrderBuilder(itemArray);
+        orders.push(order);
+
+        return order;
+    }
+}
+
+export function getFakeOrder(orders) {
+    var itemPrev1 = new ItemBuilder("Forever21", "forver21.com/tshirt");
+        itemPrev1.price = 20.00;
+        var itemPrev2 = new ItemBuilder("FootLocker", "footlocker.com/whitetop");
+        itemPrev2.price = 90.50;
+        var itemPrev3 =new ItemBuilder("FootLocker", "footlocker.com/3421903");
+        itemPrev3.price = 53.76;
+
+        var prevItems = [itemPrev1, itemPrev2, itemPrev3];
+        var prevOrder = new OrderBuilder(prevItems);
+        prevOrder.placed = new Date("1/15/2018");
+        pushOrderDelivery(prevOrder);
+        prevOrder.itemSummary = (buildOrderSummary(prevItems, true)).vendorList;
+        prevOrder.totalPrice = (buildOrderSummary(prevItems, true)).total;
+        orders.push(prevOrder);
+        
+        return prevOrder;
 }
