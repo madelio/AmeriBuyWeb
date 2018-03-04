@@ -1,6 +1,6 @@
 "use strict";
 var counter = 1;
-var userLoggedIn = localStorage.getItem("state");
+export var userLoggedIn = localStorage.getItem("state");
 console.log("value user " + userLoggedIn);
 
 var Customer = {
@@ -21,7 +21,7 @@ var Customer = {
 };
 
 
-function CustomerBuilder(first, last, email, address, city, state, zip, phone, login, pw) {
+export function CustomerBuilder(first, last, email, address, city, state, zip, phone, login, pw) {
     this.id = counter;
     counter ++;
     this.first = first;
@@ -37,13 +37,13 @@ function CustomerBuilder(first, last, email, address, city, state, zip, phone, l
 }
 
 
-function CreateJaneDoe() {
+export function CreateJaneDoe() {
     return new CustomerBuilder("Jane", "Doe", "jdoe@email",
     "1235 Street", "San Diego", "CA", "92152",
     "(880)880-8888",
     "jdiggity", "password");
 }
-var user = null;
+export var user = null;
 
 if (userLoggedIn != null) {
     var email  = localStorage.getItem("email");
@@ -86,8 +86,8 @@ if (toolbarHead != null) {
 
 // checkout Page
 
-var checkoutInfo = document.getElementById("personal-info-id");
-var returning= document.getElementById("returning");
+export var checkoutInfo = document.getElementById("personal-info-id");
+export var returning= document.getElementById("returning");
 if (checkoutInfo != null ) {
     if (userLoggedIn != null) {
         checkoutInfo.innerHTML =
