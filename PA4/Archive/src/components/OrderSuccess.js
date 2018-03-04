@@ -17,6 +17,7 @@ class OrderSuccess extends React.Component {
         var orders = [];
 
         var order = getRealOrder(orders);
+
         var total = 0;
         var vendors = order.itemSummary;
         var vendorshtml = vendors.map((vendor) =>

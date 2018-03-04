@@ -21,16 +21,20 @@ class ShoppingCart extends React.Component {
         //getRealOrder(orders);
         /* fake order */
         var headerBuilder;
+       
+
         if (order == null) {
             headerBuilder = <div><h4>No Items in your Shopping Cart :( </h4></div>
+           
         } else {
-
+        console.log("MUCHACAH");
+        
         var vendors = order.itemSummary;
         headerBuilder = vendors.map((vendor) => 
             htmlStr(vendor,order)
         ); 
 
-        function htmlStr(vendor, order) {
+        function htmlStr (vendor, order)  {
 
             var header = <tr><th className = "urlheader"> {vendor.name} ( {vendor.qty} items</th></tr>;
             
@@ -54,7 +58,7 @@ class ShoppingCart extends React.Component {
     
             </table>
     
-            <Link to="/checkout/success"><input id ="submitBtn" type="submit" value="Place Order" /></Link>
+            <Link to="/checkout/success"><input id ="submitBtn"  type="submit" value="Place Order" /></Link>
     
                 </div>
 
