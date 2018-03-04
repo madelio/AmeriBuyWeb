@@ -22,7 +22,7 @@ class ShoppingCart extends React.Component {
         /* fake order */
         var headerBuilder;
        
-
+        
         if (order == null) {
             headerBuilder = <div><h4>No Items in your Shopping Cart :( </h4></div>
            
@@ -58,7 +58,7 @@ class ShoppingCart extends React.Component {
     
             </table>
     
-            <Link to="/checkout/success"><input id ="submitBtn"  type="submit" value="Place Order" /></Link>
+            <Link to="/checkout/success"><input id ="submitBtn" type="submit" value="Place Order" /></Link>
     
                 </div>
 

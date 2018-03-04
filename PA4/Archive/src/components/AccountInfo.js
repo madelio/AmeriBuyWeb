@@ -45,9 +45,6 @@ class AccountInfo extends React.Component {
                 break;
                 
         } 
-       
-      
-
     }
 
 
