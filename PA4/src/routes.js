@@ -4,17 +4,17 @@ import App from './components/App';
 import HomePage from './components/HomePage';
 import OrderHistory from './components/OrderHistory';
 import AccountInfo from './components/AccountInfo';
-import SideNav from './components/SideNavBar';
+import AccountPage from './components/AccountPage'
+import SideNav from './components/SideNavBar'
 
 export default (
-    <Route path ="/" component={AccountPage}>
+    <Route path ="/account" component={AccountPage}>
         <IndexRoute component={AccountInfo} />
-        <Route path="/orders" component={OrderHistory} />
+        <Route path="orders" component={OrderHistory} />
     </Route>
-    
 );
 
-const AccountPage = (props) => <div>{this.props.children}</div>;
+
 
 
 

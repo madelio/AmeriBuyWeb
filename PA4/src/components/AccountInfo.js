@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import '../styles/AccountInfo.css'
 
 class AccountInfo extends React.Component {
     render() {
@@ -8,7 +9,7 @@ class AccountInfo extends React.Component {
                 <nav id="sideNav"></nav>
                 <div id="edit-account">
                     <h1>Manage your Account</h1>
-                    <div class="innerinfo">
+                    <div className="innerinfo">
                         <label for="fname">First Name: </label>
                         <input type= "text" id="fname" name="firstname" />
                         <br />
@@ -22,7 +23,7 @@ class AccountInfo extends React.Component {
                         <input type= "text" id="phone" name="phone" />
                         <br />
                     </div>
-                    <div class="addressInfo">
+                    <div className="addressInfo">
                         <label for="address">Address: </label>
                         <input type= "text" id="address" name="address" />
                         <br />
