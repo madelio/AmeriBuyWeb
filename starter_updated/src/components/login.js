@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux';
 import loginValidatorAction from '../actions/loginValidatorAction';
 import { bindActionCreators } from 'redux';
+import { login } from '../api/loginAPI';
 
 class Login extends React.Component {
 	constructor(props){
@@ -25,10 +26,10 @@ class Login extends React.Component {
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				// check password matches
+				login();
 			}
 		};
-		xhttp.open("GET", "", true);
+		xhttp.open("POST", "", true);
 		//xhttp.send(this.state.email);
 		console.log("AJAX GET - User Profile Requested");
 	}

@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import createCardAction from '../actions/createCardAction';
 import { browserHistory } from 'react-router';
+import { checkout } from '../api/checkoutAPI';
 
 class Checkout extends React.Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Checkout extends React.Component {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // process checkout
+                checkout();
             }
         };
         xhttp.open("POST", "", true);
@@ -62,7 +63,7 @@ class Checkout extends React.Component {
       </tr>);
 
       return (
-        <div>
+        <div className="textalign">
           <h3 className="header">Item Cart Information</h3>
 
           <table className="itemTable">
@@ -76,7 +77,7 @@ class Checkout extends React.Component {
 
           <h3 className="header">Shipping Information</h3>
 
-          <div className="shippingInfo">
+          <div className="info">
             <h3><span className="infoFont">Name: </span>{this.state.user.fname} {this.state.user.lname}</h3>
             <h3><span className="infoFont">Address: </span>{this.state.user.stname}, {this.state.user.city}, {this.state.user.cityState}, {this.state.user.zipcode}</h3>
             <h3><span className="infoFont">Mobile Number: </span>{this.state.user.mnum}</h3>

@@ -4,6 +4,7 @@ import { browserHistory } from 'react-router';
 import createCartAction from '../actions/createCartAction';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { add } from '../api/addItemAPI';
 
 class AddItem extends React.Component {
     constructor(props) {
@@ -47,7 +48,7 @@ class AddItem extends React.Component {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                // update cart
+                add();
             }
         };
         xhttp.open("POST", "", true);

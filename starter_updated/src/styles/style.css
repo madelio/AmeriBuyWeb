@@ -5,6 +5,14 @@
 
 }
 
+.textalign {
+  text-align: center;
+}
+
+.textalign2 {
+  text-align: left;
+}
+
 .submitButton {
     background-color: #4CAF50;
     width: 20%;
@@ -46,8 +54,9 @@
     margin-left: 30%;
 }
 
-.shippingInfo {
-  text-align: center;
+.info {
+  display: inline-block;
+  text-align: left;
 }
 
 .itemTable {

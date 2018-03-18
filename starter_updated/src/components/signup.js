@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import createUserAction from '../actions/createUserAction';
+import { signup } from '../api/signupAPI';
 
 class Signup extends React.Component {
 	constructor(props){
@@ -20,11 +21,11 @@ class Signup extends React.Component {
 		};
 	}
 
-	ajaxRequest() {
+	ajaxRequest() {	
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				//check if user alreaxy exists
+				signup();
 			}
 		};
 		xhttp.open("POST", "", true);
