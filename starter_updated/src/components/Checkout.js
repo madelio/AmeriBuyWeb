@@ -5,11 +5,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import createCardAction from '../actions/createCardAction';
 import { browserHistory } from 'react-router';
+import addOrderAction from '../actions/addOrderAction';
+import createOrderAction from '../actions/createOrderAction';
+import CreateStoreWithMiddleware from '../index.js'
 
 class Checkout extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {user:this.props.user, cart: this.props.cart, login: this.props.login,cardNum:"",cardExpiry:"",cardSVN:""};
+      this.state = {order : null, user:this.props.user, cart: this.props.cart, login: this.props.login,cardNum:"",cardExpiry:"",cardSVN:""};
     }
 
     handleCheckout(e) {
@@ -19,9 +22,19 @@ class Checkout extends React.Component {
         cardExpiry: this.state.cardExpiry,
         cardSVN: this.state.cardSVN
       }
+
+
+      console.log("checking out");
       this.props.createCardAction(card,'CARD');
+
+
+      var order = this.props.createOrderAction(this.state.cart, 'CREATE_ORDER');
+      
+
+      //this.props.addOrderAction(order, 'ADD_ORDER')
+      
       alert("Checkout Success");
-      this.props.history.push('/checkout/success');
+    //  this.props.history.push('/checkout/success');
     }
 
     render() {
@@ -83,7 +96,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({createCardAction: createCardAction},dispatch);
+    return bindActionCreators({
+      createCardAction: createCardAction, 
+      addOrderAction: addOrderAction,
+      createOrderAction: createOrderAction
+    }, dispatch);
 }
 
 

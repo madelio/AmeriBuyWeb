@@ -2,18 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../styles/OrderHistory.css';
 
+import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Provider } from 'react-redux';
+
+import { browserHistory } from 'react-router';
 
 
 class OrderHistory extends React.Component {
 
+    constructor(props) {
+        super(props);
+        
+        this.state = {orders: []}
+    }
     render() {
 
         const h1Style = {
 
                 padding: "20px",
                 color: "#475FAB"
-
-
 
         }
 
@@ -25,13 +34,12 @@ class OrderHistory extends React.Component {
         }
 
 
-        var idCtrPre = 1001;
-        var idCtrPost = 28;
-        var randomizer = 4;
-
-        var orders = [];
+        idCtrPre = 1001;
+        idCtrPost = 28;
+        randomizer = 4;
 
         //previous order
+        /*
         var itemPrev1 = new ItemBuilder("Forever21", "forver21.com/tshirt");
         itemPrev1.price = 20.00;
         var itemPrev2 = new ItemBuilder("FootLocker", "footlocker.com/whitetop");
@@ -45,14 +53,13 @@ class OrderHistory extends React.Component {
         pushOrderDelivery(prevOrder);
         prevOrder.itemSummary = (buildOrderSummary(prevItems, true)).vendorList;
         prevOrder.totalPrice = (buildOrderSummary(prevItems, true)).total;
-        orders.push(prevOrder);
+        orders.push(prevOrder);*/
 
+        // real order 
 
-        /* real order */
+        
 
-        getRealOrder(orders);
-
-       var orderStr = orders.map(convertOrdertoHTML);
+       var orderStr = this.state.orders.map(convertOrdertoHTML);
        var htmlStr = <tbody><tr><td><table className='order-items'>{orderStr}</table></td></tr></tbody>;
 
        function convertOrdertoHTML (order) {
@@ -104,8 +111,7 @@ class OrderHistory extends React.Component {
     }
 }
 
-export default OrderHistory;
-
+/*
 export function OrderBuilder(items) {
     console.log("building order with items: " + items[0].vendor);
     this.id = idCtrPre + "-" + idCtrPost;
@@ -119,7 +125,7 @@ export function OrderBuilder(items) {
     this.processed = false;
     this.shipped = false;
     this.delivered = false;
-}
+} */
 
 var idCtrPre = 1001;
 var idCtrPost = 28;
@@ -129,15 +135,11 @@ export function buildOrderSummary(items, processedBool) {
 var vendors = [];
 var totalPrice = 0.00;
 
-console.log("Building Order Summary");
-console.log("item count: " + items.length);
 for (var i = 0; i < items.length; i ++) {
 var item = items[i];
-console.log("searching for " + item.vendor + "...");
 var itemInd = vendorExists(item.vendor, vendors);
-console.log("item index is ")
+
 if (itemInd != -1) {
-    console.log(item.vendor + " found!");
     var vendor = vendors[itemInd];
     vendor.qty += item.qty;
     if (processedBool) {
@@ -145,8 +147,7 @@ if (itemInd != -1) {
         totalPrice += vendor.price;
     }
 } else {
-    console.log(item.vendor + " not found!");
-    console.log("Adding new vendor " + item.vendor + " with qty " + item.qty)
+
     var newVendor = new VendorBuilder(item.vendor, item.qty);
     if (processedBool) {
         newVendor.price = item.price;
@@ -212,6 +213,7 @@ const tableStyle = {
         boxShadow: "1px 1px 5px"
        };
 //real order
+/*
 export function getRealOrder(orders) {
     if (localStorage.getItem("count") != null ) {
         var orderCount = parseInt(localStorage.getItem("count"));
@@ -228,8 +230,8 @@ export function getRealOrder(orders) {
 
         return order;
     }
-}
-
+} */
+/*
 export function getFakeOrder(orders) {
     var itemPrev1 = new ItemBuilder("Forever21", "forver21.com/tshirt");
         itemPrev1.price = 20.00;
@@ -247,4 +249,10 @@ export function getFakeOrder(orders) {
         orders.push(prevOrder);
 
         return prevOrder;
-}
+} */
+function mapStateToProps(state) {
+    return {
+      orders: state.orders
+    }
+  }
+export default connect(mapStateToProps)(OrderHistory);
