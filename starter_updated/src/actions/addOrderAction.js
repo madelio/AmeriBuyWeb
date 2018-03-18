@@ -1,6 +1,7 @@
 import createOrderAction from './createOrderAction';
 import { setTimeout } from 'timers';
 
+
 export default function addOrderAction(items, success) {
 
 	console.log("Inside add order action");
@@ -10,12 +11,13 @@ export default function addOrderAction(items, success) {
 			(order) => {
 			
 			console.log("about to add this order: " + order);
-			success();
+			
 			dispatch({
 				type: "ADD_ORDER",
-				payload: order
-			})}
-		)
+				payload: [order]
+			})
+			success();
+		})
 		//dispatch({type: "CREATE_ORDER"});
 	}
 	

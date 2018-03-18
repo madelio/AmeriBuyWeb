@@ -17,10 +17,12 @@ import { checkout } from '../api/checkoutAPI';
 class Checkout extends React.Component {
     constructor(props) {
       super(props);
+    
       this.state = {orders: [], user:this.props.user, cart: this.props.cart, login: this.props.login,cardNum:"",cardExpiry:"",cardSVN:""};
     }
 
     handleCheckout(e) {
+      console.log("checking out");
       e.preventDefault();
       if(this.state.cardNum != "" && this.state.cardExpiry != "" && this.state.cardSVN != "") {
         
@@ -33,24 +35,16 @@ class Checkout extends React.Component {
         this.ajaxRequest();
         alert("Checkout Success");
         this.props.history.push('/checkout/success');
+
+        this.props.addOrderAction(this.state.cart, () => {
+          if (store.getState() != null) {
+            console.log(store.getState());
+          //this.setState({orders: store.getState()});
+
+         // console.log("get state in checkout " + store.getState().order.orders);
+          }
+        });
       }
-
-
-      console.log("checking out");
-
-      this.props.addOrderAction(this.state.cart, () => {
-        this.setState({orders: store.getState()});
-        console.log("get state in checkout " + store.getState() );
-      });
-    
-      
-    
-      
-      
-
-      //this.props.addOrderAction(order, 'ADD_ORDER')
-    
-    //  this.props.history.push('/checkout/success');
     }
 
     handleDisabledButton() {
@@ -142,8 +136,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
       createCardAction: createCardAction, 
-      addOrderAction: addOrderAction,
-      createOrderAction: createOrderAction
+      addOrderAction: addOrderAction
     }, dispatch);
 }
 

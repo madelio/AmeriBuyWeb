@@ -16,9 +16,10 @@ class OrderHistory extends React.Component {
     constructor(props) {
         super(props);
         
-        //this.state = {orders: this.props.orders};
-        this.state = {orders: []};
-        console.log(this.state.orders);
+        console.log(this.props.orders.orders);
+        this.state = {orders: this.props.orders.orders};
+       // this.state = {orders: []};
+       // console.log(this.state.orders);
     }
     render() {
 
@@ -92,7 +93,7 @@ class OrderHistory extends React.Component {
             }
             return (
             <tr>
-                <td><b> {vendor.name} </b> ({vendor.qty} items) : </td>
+                <td><b> {vendor.name} </b> ({vendor.qty} items)  </td>
                 {vendorStrDets}
                 {index == 0 && <td className='total' rowSpan={len}>Total:<br /> {vendorPriceText} <button className='orderBtn' id='cancelBtn'>Request Cancellation</button></td>}
             </tr>
@@ -135,37 +136,41 @@ var idCtrPost = 28;
 var randomizer = 4;
 
 export function buildOrderSummary(items, processedBool) {
-var vendors = [];
-var totalPrice = 0.00;
+    return new Promise(function(resolve, reject){
 
-for (var i = 0; i < items.length; i ++) {
-var item = items[i];
-var itemInd = vendorExists(item.vendor, vendors);
+        var vendors = [];
+        var totalPrice = 0.00;
+        
+        for (var i = 0; i < items.length; i ++) {
+        var item = items[i];
+        var itemInd = vendorExists(item.vendor, vendors);
+        
+        if (itemInd != -1) {
+            var vendor = vendors[itemInd];
+            vendor.qty += item.qty;
+            if (processedBool) {
+                vendor.price += item.price;
+                totalPrice += vendor.price;
+            }
+        } else {
+        
+            var newVendor = new VendorBuilder(item.vendor, item.qty);
+            if (processedBool) {
+                newVendor.price = item.price;
+                totalPrice += newVendor.price;
+            }
+            vendors.push(newVendor);
+        }
+        }
+        console.log("Vendors returned are: " + vendors);
+        
+        var summary = {
+        vendorList : vendors,
+        total : totalPrice
+        }
+        resolve(summary);
+    });
 
-if (itemInd != -1) {
-    var vendor = vendors[itemInd];
-    vendor.qty += item.qty;
-    if (processedBool) {
-        vendor.price += item.price;
-        totalPrice += vendor.price;
-    }
-} else {
-
-    var newVendor = new VendorBuilder(item.vendor, item.qty);
-    if (processedBool) {
-        newVendor.price = item.price;
-        totalPrice += newVendor.price;
-    }
-    vendors.push(newVendor);
-}
-}
-console.log("Vendors returned are: " + vendors);
-
-var summary = {
-vendorList : vendors,
-total : totalPrice
-}
-return summary;
 }
 
 export function VendorBuilder(name, qty) {
