@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux';
 class AddItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {itemWebsite:"", itemName:"", itemQuantity:"", itemPrice:"", itemList:[]};
+        this.state = {itemWebsite:"", itemName:"", itemQuantity:"", itemPrice:"", itemList:[], login:this.props.login};
     }
 
     addItem(e) {
@@ -31,11 +31,22 @@ class AddItem extends React.Component {
         if(this.state.itemList.length > 0) {
             this.props.createCartAction(this.state.itemList, 'CART');
             alert("Items succesfully added to cart");
+            document.getElementById("buynowbtn").disabled = true;
             this.props.history.push('/');
         }
     }
 
+    addItemDisable() {
+        if(this.state.itemList.length > 0)
+            return false;
+        else
+            return true;
+    }
+
     render() {
+        if(this.state.login != '1') 
+            return (<h2 className="signup-header"> User not logged-in </h2>);
+
         return (
             <div>
                 <div id="whatCan">
@@ -50,8 +61,9 @@ class AddItem extends React.Component {
                         <input onChange={(e) => this.setState({itemName: e.target.value})} placeholder="Product Name"/><br/>
                         <input onChange={(e) => this.setState({itemQuantity: e.target.value})} placeholder="Quantity"/><br/>
                         <input onChange={(e) => this.setState({itemPrice: e.target.value})} placeholder="Item Price(USD)"/><br/>
+                        <h4 className="small-header">Total Items: {this.state.itemList.length}</h4>
                         <button className="submitButton" type="submit">Add Item</button>
-                        <button className="submitButton" onClick={(e) => this.finishedAddingItems(e)}>Buy Now!</button>
+                        <button id="buynowbtn" className="submitButton" disabled={this.addItemDisable()} onClick={(e) => this.finishedAddingItems(e)}>Buy Now!</button>
                     </form>
                 </div>
             </div>
@@ -59,11 +71,17 @@ class AddItem extends React.Component {
     }
 }
 
+function mapStateToProps(state) {
+  return {
+    login: state.login,
+  }
+}
+
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({createCartAction: createCartAction},dispatch);
 }
 
-export default connect(null,mapDispatchToProps)(AddItem);
+export default connect(mapStateToProps,mapDispatchToProps)(AddItem);
 
 
 
