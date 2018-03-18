@@ -1,9 +1,22 @@
-export default function addOrderAction(value, type) {
-	if(type == 'ORDER') {
+import createOrderAction from './createOrderAction';
+import { setTimeout } from 'timers';
+
+export default function addOrderAction(items, success) {
+
+	console.log("Inside add order action");
+	return (dispatch) => {
+
+		createOrderAction(items).then(		
+			(order) => {
 			
-		return {
-			type: "ADD_ORDER",
-			payload: value
-		}
+			console.log("about to add this order: " + order);
+			success();
+			dispatch({
+				type: "ADD_ORDER",
+				payload: order
+			})}
+		)
+		//dispatch({type: "CREATE_ORDER"});
 	}
+	
 }

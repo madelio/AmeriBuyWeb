@@ -8,6 +8,7 @@ import { bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
 import { browserHistory } from 'react-router';
+import store from '../index.js';
 
 
 class OrderHistory extends React.Component {
@@ -15,7 +16,9 @@ class OrderHistory extends React.Component {
     constructor(props) {
         super(props);
         
-        this.state = {orders: []}
+        //this.state = {orders: this.props.orders};
+        this.state = {orders: []};
+        console.log(this.state.orders);
     }
     render() {
 
@@ -58,7 +61,7 @@ class OrderHistory extends React.Component {
         // real order 
 
         
-
+        console.log(this.state.orders);
        var orderStr = this.state.orders.map(convertOrdertoHTML);
        var htmlStr = <tbody><tr><td><table className='order-items'>{orderStr}</table></td></tr></tbody>;
 

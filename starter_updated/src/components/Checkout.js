@@ -8,7 +8,8 @@ import { browserHistory } from 'react-router';
 
 import addOrderAction from '../actions/addOrderAction';
 import createOrderAction from '../actions/createOrderAction';
-import CreateStoreWithMiddleware from '../index.js'
+
+import store from '../index.js';
 
 import { checkout } from '../api/checkoutAPI';
 
@@ -16,12 +17,13 @@ import { checkout } from '../api/checkoutAPI';
 class Checkout extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {order : null, user:this.props.user, cart: this.props.cart, login: this.props.login,cardNum:"",cardExpiry:"",cardSVN:""};
+      this.state = {orders: [], user:this.props.user, cart: this.props.cart, login: this.props.login,cardNum:"",cardExpiry:"",cardSVN:""};
     }
 
     handleCheckout(e) {
       e.preventDefault();
       if(this.state.cardNum != "" && this.state.cardExpiry != "" && this.state.cardSVN != "") {
+        
         let card = {
           cardNum: this.state.cardNum,
           cardExpiry: this.state.cardExpiry,
@@ -35,29 +37,19 @@ class Checkout extends React.Component {
 
 
       console.log("checking out");
-      this.props.createCardAction(card,'CARD');
 
-
-
-      this.props.addOrderAction({
-        id : 1 + "-" + 2,
-        items: this.state.cart,
-        placed: Date.now(),
-        itemSummary : ["test"],
-        estArrivalRange : 7,
-        received : true,
-        processed : false,
-        shipped : false,
-        delivered : false
-      }, 'ADD_ORDER');
+      this.props.addOrderAction(this.state.cart, () => {
+        this.setState({orders: store.getState()});
+        console.log("get state in checkout " + store.getState() );
+      });
+    
+      
+    
+      
       
 
       //this.props.addOrderAction(order, 'ADD_ORDER')
-      
-
-      this.ajaxRequest();
-
-      alert("Checkout Success");
+    
     //  this.props.history.push('/checkout/success');
     }
 
@@ -142,7 +134,8 @@ function mapStateToProps(state) {
   return {
     user: state.user,
     login: state.login,
-    cart: state.cart
+    cart: state.cart,
+    orders: state.orders
   }
 }
 
