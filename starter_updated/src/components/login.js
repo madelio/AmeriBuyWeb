@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { connect } from 'react-redux';
 import loginValidatorAction from '../actions/loginValidatorAction';
 import { bindActionCreators } from 'redux';
+import { login } from '../api/loginAPI';
 
 class Login extends React.Component {
 	constructor(props){
@@ -13,11 +14,24 @@ class Login extends React.Component {
 	login(e) {		
 		e.preventDefault();
 		if(this.props.user) {
+			this.ajaxRequest();
 			if(this.props.user.email == this.state.email && this.props.user.password == this.state.password) {
 				this.props.loginValidatorAction('1','LOGIN');
 				this.props.history.push('/')
 			}
 		}
+	}
+
+	ajaxRequest() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				login();
+			}
+		};
+		xhttp.open("POST", "", true);
+		//xhttp.send(this.state.email);
+		console.log("AJAX GET - User Profile Requested");
 	}
 
 	render() {

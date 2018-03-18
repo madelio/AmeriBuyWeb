@@ -3,6 +3,7 @@ import { browserHistory } from 'react-router'
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import createUserAction from '../actions/createUserAction';
+import { signup } from '../api/signupAPI';
 
 class Signup extends React.Component {
 	constructor(props){
@@ -18,6 +19,29 @@ class Signup extends React.Component {
 				cityState:"",
 				zipcode:""
 		};
+	}
+
+	ajaxRequest() {	
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				signup();
+			}
+		};
+		xhttp.open("POST", "", true);
+	  	let user = {
+	  		email: this.state.email,
+			password: this.state.password,
+			fname: this.state.fname,
+			lname: this.state.lname,
+			mnum: this.state.mnum,
+			stname: this.state.stname,
+			city: this.state.city,
+			cityState: this.state.cityState,
+			zipcode: this.state.zipcode
+	  	}
+		//xhttp.send(user);
+		console.log("AJAX POST - User Profile Sent");
 	}
 
 	handleForm(e) {
@@ -38,6 +62,7 @@ class Signup extends React.Component {
 	  		this.state.zipcode != "")
 	  	{
 		  	this.props.createUserAction(user,'USER');
+		  	this.ajaxRequest();
 		  	this.props.history.push('/');
 	  }
 	}
