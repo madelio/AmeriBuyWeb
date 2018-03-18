@@ -44,6 +44,15 @@ class Signup extends React.Component {
 		console.log("AJAX POST - User Profile Sent");
 	}
 
+	handleDisabledButton() {
+		if(this.state.email != "" && this.state.password != "" && this.state.fname != "" && this.state.lname != "" && 
+	  		this.state.mnum != "" && this.state.stname != "" && this.state.city != "" && this.state.cityState != "" && 
+	  		this.state.zipcode != "")
+	  		return false;
+	  	else
+	  		return true;
+	}
+
 	handleForm(e) {
 	  	e.preventDefault();	
 	  	let user = {
@@ -84,7 +93,7 @@ class Signup extends React.Component {
 				  		<input type="text" onChange={(e) => this.setState({city:e.target.value})} placeholder="City"></input><br/>
 				  		<input type="text" onChange={(e) => this.setState({cityState:e.target.value})} placeholder="State"></input><br/>
 					  	<input type="text" onChange={(e) => this.setState({zipcode:e.target.value})} placeholder="Zipcode"></input><br/>
-						<button className="submitButton" type="submit">Sign Up</button>
+						<button className="submitButton" type="submit" disabled={this.handleDisabledButton()}>Sign Up</button>
 					</form>
 				</div>
 			</div>
