@@ -20,6 +20,29 @@ class Signup extends React.Component {
 		};
 	}
 
+	ajaxRequest() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				//check if user alreaxy exists
+			}
+		};
+		xhttp.open("POST", "", true);
+	  	let user = {
+	  		email: this.state.email,
+			password: this.state.password,
+			fname: this.state.fname,
+			lname: this.state.lname,
+			mnum: this.state.mnum,
+			stname: this.state.stname,
+			city: this.state.city,
+			cityState: this.state.cityState,
+			zipcode: this.state.zipcode
+	  	}
+		//xhttp.send(user);
+		console.log("AJAX POST - User Profile Sent");
+	}
+
 	handleForm(e) {
 	  	e.preventDefault();	
 	  	let user = {
@@ -38,6 +61,7 @@ class Signup extends React.Component {
 	  		this.state.zipcode != "")
 	  	{
 		  	this.props.createUserAction(user,'USER');
+		  	this.ajaxRequest();
 		  	this.props.history.push('/');
 	  }
 	}

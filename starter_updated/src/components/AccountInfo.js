@@ -52,8 +52,32 @@ class AccountInfo extends React.Component {
             this.state.zipcode != "")
         {
             this.props.createUserAction(user,'USER');
+            this.ajaxRequest();
             this.props.history.push('/');
         }
+    }
+
+    ajaxRequest() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // update user profile on server
+            }
+        };
+        xhttp.open("POST", "", true);
+        let user = {
+                email: this.state.email,
+                password: this.state.password,
+                fname: this.state.fname,
+                lname: this.state.lname,
+                mnum: this.state.mnum,
+                stname: this.state.stname,
+                city: this.state.city,
+                cityState: this.state.cityState,
+                zipcode: this.state.zipcode
+        }
+        //xhttp.send(cart);
+        console.log("AJAX POST - New Profile Sent");
     }
 
     render() {

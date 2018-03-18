@@ -20,8 +20,29 @@ class Checkout extends React.Component {
         cardSVN: this.state.cardSVN
       }
       this.props.createCardAction(card,'CARD');
+      this.ajaxRequest();
       alert("Checkout Success");
       this.props.history.push('/checkout/success');
+    }
+
+    ajaxRequest() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // process checkout
+            }
+        };
+        xhttp.open("POST", "", true);
+        let checkoutDetails = {
+          cart: this.state.cart,
+          card: {
+            cardNum: this.state.cardNum,
+            cardExpiry: this.state.cardExpiry,
+            cardSVN: this.state.cardSVN
+          }
+        };
+        //xhttp.send(checkoutDetails);
+        console.log("AJAX POST - Checkout Request Sent");
     }
 
     render() {

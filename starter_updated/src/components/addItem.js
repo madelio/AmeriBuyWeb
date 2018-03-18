@@ -31,7 +31,7 @@ class AddItem extends React.Component {
         if(this.state.itemList.length > 0) {
             this.props.createCartAction(this.state.itemList, 'CART');
             alert("Items succesfully added to cart");
-            document.getElementById("buynowbtn").disabled = true;
+            this.ajaxRequest();
             this.props.history.push('/');
         }
     }
@@ -41,6 +41,19 @@ class AddItem extends React.Component {
             return false;
         else
             return true;
+    }
+
+    ajaxRequest() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // update cart
+            }
+        };
+        xhttp.open("POST", "", true);
+        let cart = this.state.itemList;
+        //xhttp.send(cart);
+        console.log("AJAX POST - Cart Sent");
     }
 
     render() {
