@@ -21,10 +21,16 @@ class Checkout extends React.Component {
 
     handleCheckout(e) {
       e.preventDefault();
-      let card = {
-        cardNum: this.state.cardNum,
-        cardExpiry: this.state.cardExpiry,
-        cardSVN: this.state.cardSVN
+      if(this.state.cardNum != "" && this.state.cardExpiry != "" && this.state.cardSVN != "") {
+        let card = {
+          cardNum: this.state.cardNum,
+          cardExpiry: this.state.cardExpiry,
+          cardSVN: this.state.cardSVN
+        }
+        this.props.createCardAction(card,'CARD');
+        this.ajaxRequest();
+        alert("Checkout Success");
+        this.props.history.push('/checkout/success');
       }
 
 
@@ -53,6 +59,13 @@ class Checkout extends React.Component {
 
       alert("Checkout Success");
     //  this.props.history.push('/checkout/success');
+    }
+
+    handleDisabledButton() {
+      if(this.state.cardNum != "" && this.state.cardExpiry != "" && this.state.cardSVN != "") 
+        return false;
+      else
+        return true;
     }
 
     ajaxRequest() {
@@ -118,7 +131,7 @@ class Checkout extends React.Component {
             <input value={this.state.cardNum} onChange = {(e) => this.setState({cardNum: e.target.value})} placeholder="Credit Card Number"/><br/>
             <input value={this.state.cardExpiry} onChange = {(e) => this.setState({cardExpiry: e.target.value})} placeholder="Credit Card Expiry"/><br/>
             <input value={this.state.cardSVN} onChange = {(e) => this.setState({cardSVN: e.target.value})} placeholder="Credit SVN"/><br/>
-            <button className="submitButton" type="submit">Checkout</button>
+            <button className="submitButton" type="submit" disabled={this.handleDisabledButton()}>Checkout</button>
           </form>
         </div>
       );
