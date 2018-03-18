@@ -30,11 +30,18 @@ class OrderHistory extends React.Component {
 
         }
 
+        const h2Style = {
+            padding: "20px",
+            marginLeft: "50px",
+            color: "#475FAB"
+        }
+
         const thStyle = {
 
                 backgroundColor: "#475FAB",
                 color: "white",
                 padding: "20px"
+                
         }
 
 
@@ -100,6 +107,9 @@ class OrderHistory extends React.Component {
             );
        }
 
+       if (this.state.orders.length <= 0) {
+           htmlStr = <h2 style={h2Style}><b> You have no order history :( </b></h2>
+       }
         return (
             <div>
                 <div className="orders">
