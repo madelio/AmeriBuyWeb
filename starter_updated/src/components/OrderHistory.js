@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/OrderHistory.css';
-
 
 
 class OrderHistory extends React.Component {
