@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/Checkout.css'
 import { OrderBuilder, ItemBuilder, getRealOrder, getFakeOrder } from './OrderHistory';
 import { Link } from 'react-router';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/OrderHistory.css';
+import '../styles/style.css';
 
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
