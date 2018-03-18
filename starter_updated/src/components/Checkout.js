@@ -33,7 +33,17 @@ class Checkout extends React.Component {
 
 
 
-      var order = this.props.createOrderAction(this.state.cart, 'CREATE_ORDER');
+      this.props.addOrderAction({
+        id : 1 + "-" + 2,
+        items: this.state.cart,
+        placed: Date.now(),
+        itemSummary : ["test"],
+        estArrivalRange : 7,
+        received : true,
+        processed : false,
+        shipped : false,
+        delivered : false
+      }, 'ADD_ORDER');
       
 
       //this.props.addOrderAction(order, 'ADD_ORDER')
